@@ -13,6 +13,7 @@ A Rust application that extracts text from images using OCR (Optical Character R
 
 - [Rust](https://www.rust-lang.org/tools/install)
 - [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
+- [bat](https://github.com/sharkdp/bat) - A cat clone with syntax highlighting
 - English language data for Tesseract
 
 ## Installation
@@ -43,6 +44,7 @@ By default, the application looks for a file named `test.png`. You can modify th
 3. Tesseract OCR processes the image and extracts text
 4. The application scans the text for URLs using regex
 5. Identified links are formatted into a table and displayed
+6. Text output is displayed using the bat utility for syntax highlighting
 
 ## Project Structure
 
@@ -53,6 +55,7 @@ By default, the application looks for a file named `test.png`. You can modify th
   - `format_string_array.rs` - Table formatting for display
   - `get_text.rs` - OCR text extraction
   - `links.rs` - URL extraction from text using regex
+  - `show_bat_output.rs` - Display text with syntax highlighting using bat
 
 ## Dependencies
 
