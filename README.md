@@ -32,7 +32,7 @@ cargo build --release
 Place an image file in the project directory and run the application:
 
 ```bash
-cargo run
+cargo run -- --image <path_to_image>
 ```
 
 By default, the application looks for a file named `test.png`. You can modify the input image path in `src/main.rs`.
