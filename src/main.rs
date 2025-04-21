@@ -15,10 +15,10 @@ fn main() -> Result<()> {
 
     // Validate and get the absolute path to the image
     let input_image_path = validate_image_path(&args.image)?;
-    println!(
-        "Processing image: {}",
-        input_image_path.display().to_string().cyan()
-    );
+    // println!(
+    //     "Processing image: {}",
+    //     input_image_path.display().to_string().cyan()
+    // );
 
     // Get text from the image using OCR
     let text = get_text(&input_image_path)?;
@@ -26,20 +26,19 @@ fn main() -> Result<()> {
     // Extract links from the text
     let links = extract_links(&text);
 
-    if !links.is_empty() {
-        println!("{}", "Links found:".green().bold().italic());
-        let output = vec_to_string_with_newlines(&links);
-        if let Err(e) = display_with_bat(&output) {
-            eprintln!("Error displaying links: {}", e);
+    // Handle output based on links flag and whether links were found
+    if args.links {
+        // Links-only mode
+        if !links.is_empty() {
+            println!("{}", "Links found:".green().bold().italic());
+            let output = vec_to_string_with_newlines(&links);
+            if let Err(e) = display_with_bat(&output) {
+                eprintln!("Error displaying links: {}", e);
+            }
+        } else {
+            println!("{}", "No links found in the image.".yellow().bold());
         }
     } else {
-        println!(
-            "{}",
-            "No links found, printing raw text instead:"
-                .red()
-                .bold()
-                .italic()
-        );
         if let Err(e) = display_with_bat(&text) {
             eprintln!("Error displaying text: {}", e);
         }

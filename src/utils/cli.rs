@@ -9,6 +9,14 @@ pub struct Args {
     /// Path to the input image
     #[clap(short, long)]
     pub image: String,
+
+    /// Extract only links from the image
+    #[clap(
+        short,
+        long,
+        help = "Extract and show only links from the image (no raw text)"
+    )]
+    pub links: bool,
 }
 
 /// Validates the image path and returns the absolute path
