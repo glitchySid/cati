@@ -7,7 +7,7 @@ use std::path::{Path, PathBuf};
 #[clap(author, version, about = "Extract links from images using OCR")]
 pub struct Args {
     /// Path to the input image
-    #[clap(short, long)]
+    //#[clap(short, long)]
     pub image: String,
 
     /// Extract only links from the image
