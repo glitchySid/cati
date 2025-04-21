@@ -1,4 +1,6 @@
-# OCR Text Extractor
+# Cat for Images
+
+## OCR Text Extractor
 
 A Rust application that extracts text from images using OCR (Optical Character Recognition) and identifies links within the text.
 
